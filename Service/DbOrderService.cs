@@ -18,6 +18,7 @@ namespace CloudShopApp.Service
         public Order AddOrder(Order order)
         {
             context.Orders.Add(order);
+            context.SaveChanges();
             return order;
         }
 
@@ -38,12 +39,14 @@ namespace CloudShopApp.Service
             if (removeable != null)
             {
                 context.Orders.Remove(removeable);
+                context.SaveChanges();
             }
         }
 
         public void UpdateOrder(Order order)
         {
             context.Orders.Update(order);
+            context.SaveChanges();
         }
     }
 }
